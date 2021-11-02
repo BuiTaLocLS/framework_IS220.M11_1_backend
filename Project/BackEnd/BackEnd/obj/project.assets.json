@@ -1427,11 +1427,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\19520\\OneDrive\\Desktop\\Project\\BackEnd\\BackEnd\\BackEnd.csproj",
+      "projectUniqueName": "E:\\HK5 2021-2022\\Framework\\framework_IS220.M11_1_backend\\Project\\BackEnd\\BackEnd\\BackEnd.csproj",
       "projectName": "BackEnd",
-      "projectPath": "C:\\Users\\19520\\OneDrive\\Desktop\\Project\\BackEnd\\BackEnd\\BackEnd.csproj",
+      "projectPath": "E:\\HK5 2021-2022\\Framework\\framework_IS220.M11_1_backend\\Project\\BackEnd\\BackEnd\\BackEnd.csproj",
       "packagesPath": "C:\\Users\\19520\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\19520\\OneDrive\\Desktop\\Project\\BackEnd\\BackEnd\\obj\\",
+      "outputPath": "E:\\HK5 2021-2022\\Framework\\framework_IS220.M11_1_backend\\Project\\BackEnd\\BackEnd\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\19520\\AppData\\Roaming\\NuGet\\NuGet.Config",

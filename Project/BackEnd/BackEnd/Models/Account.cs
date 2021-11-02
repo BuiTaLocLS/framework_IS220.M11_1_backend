@@ -20,5 +20,6 @@ namespace BackEnd.Models
         public ICollection<Review> Reviews { get; set; }
         public ICollection<Order> Orders { get; set; }
         public ICollection<Address> Addresses { get; set; }
+        //test
     }
 }
