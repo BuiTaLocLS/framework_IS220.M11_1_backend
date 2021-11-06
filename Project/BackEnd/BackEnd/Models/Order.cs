@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,9 +13,13 @@ namespace BackEnd.Models
     }
     public class Order
     {
+        [Key]
         public int OrderID { get; set; }
         public int AddressID { get; set; }
+        [ForeignKey("AddressID")]
         public string AccountID { get; set; }
+        [ForeignKey("AccountID")]
+        [DisplayFormat(DataFormatString = "0:dd/MM/yyyy", ApplyFormatInEditMode = true)]
         public DateTime CreatedDate { get; set; }
         public Status Status { get; set; }
         public double Total { get; set; }

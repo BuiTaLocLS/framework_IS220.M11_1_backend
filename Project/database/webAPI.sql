@@ -21,7 +21,7 @@ CREATE TABLE Product
     FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID),
     FOREIGN KEY (ProductTypeID) REFERENCES ProductType(ProductTypeID)
 );
-
+ALTER TABLE product ADD Img_URL VARCHAR(100);
 CREATE TABLE User
 (
 	UserID INT NOT NULL PRIMARY KEY,
