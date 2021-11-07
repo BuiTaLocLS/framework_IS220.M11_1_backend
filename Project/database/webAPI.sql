@@ -115,6 +115,12 @@ CREATE TABLE OrderDetail
     FOREIGN KEY (OrderID) REFERENCES Order_(OrderID),
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
 );
+INSERT INTO supplier VALUES(1,'Adidas','USA');
+INSERT INTO supplier VALUES(2,'Nike','USA');
 
+INSERT INTO producttype VALUES(1,'Shoe');
+INSERT INTO producttype VALUES(2,'Shirt');
 
+INSERT INTO product VALUES(1,1,2,"Own the run tee",750000,"https://drive.google.com/file/d/1SyFDHvXwM7qw12I30cfucIJdUGdi_Ljp/view?usp=sharing");
+INSERT INTO product VALUES(2,2,1,"Air Jordan XXXVI",5535000,"https://drive.google.com/file/d/1EVmu5ETMZX3-PF5muxrWX7WQJkeb-PN6/view?usp=sharing");
 
