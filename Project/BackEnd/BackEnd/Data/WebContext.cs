@@ -41,7 +41,7 @@ namespace BackEnd.Data
             modelBuilder.Entity<CartDetail>().ToTable("CartDetail").HasKey(c => new { c.CartID, c.ProductID});
             modelBuilder.Entity<OrderDetail>().ToTable("OrderDetail").HasKey(c => new { c.OrderID, c.ProductID });
             modelBuilder.Entity<Review>().ToTable("Review").HasKey(c => new { c.ProductID, c.AccountID });
-
+            //phuc branch
 
         }
     }
