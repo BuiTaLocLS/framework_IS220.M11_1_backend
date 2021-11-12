@@ -1,14 +1,13 @@
 CREATE TABLE ProductType
 (
 	ProductTypeID INT NOT NULL PRIMARY KEY,
-    ProductTypeName VARCHAR(50) NOT NULL
+    ProductTypeName NVARCHAR(50) NOT NULL
 );
-
 CREATE TABLE Supplier
 (
 	SupplierID INT NOT NULL PRIMARY KEY,
-    SupplierName VARCHAR(50) NOT NULL,
-    SupplierAddress VARCHAR(50) NOT NULL
+    SupplierName NVARCHAR(50) NOT NULL,
+    SupplierAddress NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Product
@@ -16,7 +15,7 @@ CREATE TABLE Product
 	ProductID INT NOT NULL PRIMARY KEY,
 	SupplierID INT NOT NULL,
     ProductTypeID INT NOT NULL,
-    ProductName VARCHAR(50) NOT NULL,
+    ProductName NVARCHAR(50) NOT NULL,
     Price DOUBLE  NOT NULL,
     FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID),
     FOREIGN KEY (ProductTypeID) REFERENCES ProductType(ProductTypeID)
@@ -25,7 +24,7 @@ ALTER TABLE product ADD Img_URL VARCHAR(100);
 CREATE TABLE User
 (
 	UserID INT NOT NULL PRIMARY KEY,
-	UserName  VARCHAR(50) NOT NULL,
+	UserName  NVARCHAR(50) NOT NULL,
     UserMail VARCHAR(40) NOT NULL,
     UserBirthdate DATE,
     UserGender INT,
@@ -47,17 +46,16 @@ CREATE TABLE SearchHistory
 (
 	SearchHistoryID INT NOT NULL PRIMARY KEY,
     AccountID VARCHAR(40) NOT NULL,
-    SearchContent VARCHAR(50) NOT NULL,
+    SearchContent NVARCHAR(50) NOT NULL,
     SearchDate DATETIME,
     FOREIGN KEY (AccountID) REFERENCES Account(AccountID)
 );
-
 CREATE TABLE Review
 (
 	ProductID INT NOT NULL,
     AccountID VARCHAR(40) NOT NULL ,
     Ranking INT NOT NULL,
-    Comment VARCHAR(80),
+    Comment NVARCHAR(80),
     CreatedDate DATETIME,
     PRIMARY KEY (ProductID,AccountID),
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
@@ -89,7 +87,7 @@ CREATE TABLE  Address
 (
 	AddressID INT NOT NULL PRIMARY KEY,
     AccountID VARCHAR(40) NOT NULL,
-    Diachi  VARCHAR(60) NOT NULL,
+    Diachi  NVARCHAR(60) NOT NULL,
 	FOREIGN KEY (AccountID) REFERENCES Account(AccountID)
 );
 
