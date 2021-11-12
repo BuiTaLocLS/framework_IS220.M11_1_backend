@@ -62,7 +62,6 @@ E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd
 E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\ZstdNet.dll
 E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\MySql.EntityFrameworkCore.dll
 E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
-E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
 E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
@@ -174,3 +173,7 @@ E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd
 E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
 E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.InMemory.dll
+E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
+E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
+E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.dll
+E:\HK5 2021-2022\Framework\framework_IS220.M11_1_backend\Project\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Binder.dll

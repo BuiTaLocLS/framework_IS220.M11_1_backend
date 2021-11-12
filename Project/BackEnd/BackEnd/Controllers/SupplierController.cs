@@ -7,6 +7,10 @@ using static System.Console;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Data.SqlClient;
+using System.Data;
+using MySql.Data.MySqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackEnd.Controllers
 {
@@ -22,20 +26,24 @@ namespace BackEnd.Controllers
 
         //Get       
         [HttpGet]
-        public IEnumerable<Supplier> GetSuppliers()
-        {
-            var suppliers = _context.Suppliers;
-
+        [Route("Get")]
+        public async Task<IEnumerable<Supplier>> GetSuppliers()
+        {        
+            var suppliers = await (from s in _context.Suppliers
+                                  select s).ToListAsync();
             if (suppliers != null)
-                return suppliers.ToList();
+                return suppliers;
             else
                 return (IEnumerable<Supplier>)NoContent();
         }
         //Get with id
-        [HttpGet("{id}")]
-        public ActionResult<Supplier> GetSuppliers(int id)
+        [HttpGet]
+        [Route("GetbyID/{id?}")]
+        public async Task<ActionResult<Supplier>> GetSupplierbyID(int id)
         {
-            var supplier = _context.Suppliers.Find(id);
+            var supplier = await (from s in _context.Suppliers
+                                  where s.SupplierID.Equals(id)
+                                  select s).FirstOrDefaultAsync();
 
             if (supplier != null)
                 return supplier;
@@ -44,12 +52,12 @@ namespace BackEnd.Controllers
         }
         //Post
         [HttpPost]
-        public ActionResult<Supplier> Post(Supplier supplier)
+        public async Task<ActionResult<Supplier>> Post(Supplier supplier)
         {
             if (supplier != null)
             {
                 _context.Suppliers.Add(supplier);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 return supplier;
             }
             else
@@ -58,7 +66,7 @@ namespace BackEnd.Controllers
         }
         //Put
         [HttpPut("{id}")]
-        public ActionResult<Supplier> Put(int id,Supplier new_supplier)
+        public async Task<ActionResult<Supplier>> Put(int id,Supplier new_supplier)
         {
             if (id != new_supplier.SupplierID)
             {
@@ -70,7 +78,7 @@ namespace BackEnd.Controllers
                 supplier.SupplierID = new_supplier.SupplierID;
                 supplier.SupplierName = new_supplier.SupplierName;
                 supplier.SupplierAddress = new_supplier.SupplierAddress;
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 return supplier;
             }
             else
@@ -80,13 +88,13 @@ namespace BackEnd.Controllers
         }
         //Delete
         [HttpDelete("{id}")]
-        public ActionResult<Supplier> Put(int id)
+        public async Task<ActionResult<Supplier>> Delete(int id)
         {
             var supplier = _context.Suppliers.Find(id);
             if (supplier != null)
             {
                 _context.Suppliers.Remove(supplier);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync(); 
                 return supplier;
             }
             else

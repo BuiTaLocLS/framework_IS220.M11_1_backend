@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BackEnd.Models;
+using MySql.Data.MySqlClient;
+
 namespace BackEnd.Data
 {
     public class WebContext : DbContext
@@ -43,5 +45,6 @@ namespace BackEnd.Data
             modelBuilder.Entity<Review>().ToTable("Review").HasKey(c => new { c.ProductID, c.AccountID });
       
         }
+       
     }
 }
