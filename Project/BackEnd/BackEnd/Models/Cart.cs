@@ -11,11 +11,16 @@ namespace BackEnd.Models
     {
         [Key]
         public int CartID { get; set; }
+
         public string AccountID { get; set; }
-        [ForeignKey("AccountID")]
+        
         public int CartCapacity { get; set; }
+
         public double CartTotal { get; set; }
 
+
+
+        [ForeignKey("AccountID")]
         public Account Account { get; set; }
         public ICollection<CartDetail> CartDetails { get; set; }
     }
