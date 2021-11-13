@@ -11,15 +11,23 @@ namespace BackEnd.Models
     {
         [Key]
         public int ProductID { get; set; }
+
         public int SupplierID { get; set; }
-        [ForeignKey("SupplierID")]
+        
         public int ProductTypeID { get; set; }
-        [ForeignKey("ProductTypeID")]
+
+        [StringLength(50, ErrorMessage = "Không vượt quá 50 kí tự!")]
         public string ProductName { get; set; }
+
         public double Price { get; set; }
+
+        [StringLength(100, ErrorMessage = "Không vượt quá 100 kí tự!")]
         public string img_URL { get; set; }
 
+
+        [ForeignKey("SupplierID")]
         public Supplier Supplier { get; set; }
+        [ForeignKey("ProductTypeID")]
         public ProductType ProductType { get; set; }
         public ICollection<CartDetail> CartDetails { get; set; }
         public ICollection<Review> Reviews { get; set; }

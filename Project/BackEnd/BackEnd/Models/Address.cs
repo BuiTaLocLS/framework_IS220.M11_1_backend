@@ -11,10 +11,12 @@ namespace BackEnd.Models
     {
         [Key]
         public int AddressID { get; set; }
-        public string AccountID { get; set; }
-        [ForeignKey("AccountID")]
+        public string AccountID { get; set; } 
+        
+        [StringLength(60, ErrorMessage = "Không vượt quá 60 kí tự!")]
         public string Diachi { get; set; }
 
+        [ForeignKey("AccountID")]
         public Account Account { get; set; }
         public ICollection<Order> Orders { get; set; }
     }
