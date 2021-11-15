@@ -13,7 +13,7 @@ namespace BackEnd.Models
         public int ProductID { get; set; }
 
         public int SupplierID { get; set; }
-        
+
         public int ProductTypeID { get; set; }
 
         [StringLength(50, ErrorMessage = "Không vượt quá 50 kí tự!")]
@@ -23,6 +23,7 @@ namespace BackEnd.Models
 
         [StringLength(100, ErrorMessage = "Không vượt quá 100 kí tự!")]
         public string img_URL { get; set; }
+
 
 
         [ForeignKey("SupplierID")]
