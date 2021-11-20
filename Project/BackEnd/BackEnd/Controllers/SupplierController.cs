@@ -36,6 +36,7 @@ namespace BackEnd.Controllers
             else
                 return (IEnumerable<Supplier>)NoContent();
         }
+
         //Get with id
         [HttpGet]
         [Route("GetbyID/{id?}")]
@@ -61,8 +62,7 @@ namespace BackEnd.Controllers
                 return supplier;
             }
             else
-                return NoContent();
-            
+                return NoContent();          
         }
         //Put
         [HttpPut("{id}")]
@@ -83,7 +83,7 @@ namespace BackEnd.Controllers
             }
             else
             {
-                return NoContent();
+                return NotFound();
             }           
         }
         //Delete
@@ -99,7 +99,7 @@ namespace BackEnd.Controllers
             }
             else
             {
-                return NoContent();
+                return NotFound();
             }
         }
     }

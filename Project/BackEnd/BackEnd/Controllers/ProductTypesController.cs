@@ -10,7 +10,7 @@ using BackEnd.Models;
 
 namespace BackEnd.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/ProductType")]
     [ApiController]
     public class ProductTypesController : ControllerBase
     {
@@ -23,16 +23,29 @@ namespace BackEnd.Controllers
 
         // GET: api/ProductTypes
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductType>>> GetProductTypes()
+        [Route("GetAll")]
+        public async Task<IEnumerable<ProductType>> GetAll()
         {
-            return await _context.ProductTypes.ToListAsync();
+            var list = await(from p in _context.ProductTypes
+                        select p).ToListAsync();
+            if (list != null)
+            {
+                return list;
+            }
+            else
+            {
+                return (IEnumerable<ProductType>)NotFound();
+            }
         }
 
         // GET: api/ProductTypes/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ProductType>> GetProductType(int id)
+        [HttpGet]
+        [Route("GetbyID")]
+        public async Task<ActionResult<ProductType>> GetbyID(int id)
         {
-            var productType = await _context.ProductTypes.FindAsync(id);
+            var productType = await (from p in _context.ProductTypes
+                                     where id == p.ProductTypeID
+                                     select p).FirstOrDefaultAsync();
 
             if (productType == null)
             {
@@ -45,33 +58,26 @@ namespace BackEnd.Controllers
         // PUT: api/ProductTypes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutProductType(int id, ProductType productType)
+        [HttpPut]
+        [Route("Put/{id?}")]
+        public async Task<ActionResult<ProductType>> Put(int id, ProductType productType)
         {
             if (id != productType.ProductTypeID)
             {
                 return BadRequest();
             }
 
-            _context.Entry(productType).State = EntityState.Modified;
-
-            try
+            var tmp = _context.ProductTypes.Find(id);
+            if (tmp != null)
             {
+                tmp.ProductTypeName = productType.ProductTypeName;
                 await _context.SaveChangesAsync();
+                return tmp;
             }
-            catch (DbUpdateConcurrencyException)
+            else
             {
-                if (!ProductTypeExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return NotFound();
             }
-
-            return NoContent();
         }
 
         // POST: api/ProductTypes
@@ -80,26 +86,34 @@ namespace BackEnd.Controllers
         [HttpPost]
         public async Task<ActionResult<ProductType>> PostProductType(ProductType productType)
         {
-            _context.ProductTypes.Add(productType);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetProductType", new { id = productType.ProductTypeID }, productType);
+            if (productType != null)
+            {
+                _context.ProductTypes.Add(productType);
+                await _context.SaveChangesAsync();
+                return productType;
+            }
+            else
+            {
+                return NoContent();
+            }
+          
         }
 
         // DELETE: api/ProductTypes/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<ProductType>> DeleteProductType(int id)
         {
-            var productType = await _context.ProductTypes.FindAsync(id);
+            var productType = _context.ProductTypes.Find(id);
             if (productType == null)
             {
                 return NotFound();
             }
-
-            _context.ProductTypes.Remove(productType);
-            await _context.SaveChangesAsync();
-
-            return productType;
+            else
+            {
+                _context.ProductTypes.Remove(productType);
+                await _context.SaveChangesAsync();
+                return productType;
+            }          
         }
 
         private bool ProductTypeExists(int id)

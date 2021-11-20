@@ -121,4 +121,7 @@ INSERT INTO producttype VALUES(2,'Shirt');
 
 INSERT INTO product VALUES(1,1,2,"Own the run tee",750000,"https://drive.google.com/file/d/1SyFDHvXwM7qw12I30cfucIJdUGdi_Ljp/view?usp=sharing");
 INSERT INTO product VALUES(2,2,1,"Air Jordan XXXVI",5535000,"https://drive.google.com/file/d/1EVmu5ETMZX3-PF5muxrWX7WQJkeb-PN6/view?usp=sharing");
+INSERT INTO user VALUES(1,'Nhâm hồng Phúc','nhamphuc414@gm.com','2001-1-14',1,"Bình Dương");
+INSERT INTO account VALUES('hongphuc414','12345',1,0,'2021-11-14',0);
 
+select * from user
