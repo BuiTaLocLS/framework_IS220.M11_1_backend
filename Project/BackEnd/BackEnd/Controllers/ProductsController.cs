@@ -55,6 +55,24 @@ namespace BackEnd.Controllers
                 return NotFound();
             }
         }
+        //Get with producttype
+        [HttpGet]
+        [Route("GetbyType/{type?}")]
+        public async Task<IEnumerable<Product>> GetByType(string type)
+        {
+            var list = await (from p in _context.Products
+                              join t in _context.ProductTypes on p.ProductTypeID equals t.ProductTypeID
+                              where t.ProductTypeName.Equals(type)
+                              select p).ToListAsync();
+            if (list != null)
+            {
+                return list;
+            }
+            else
+            {
+                return (IEnumerable<Product>)NotFound();
+            }
+        }
 
         //Post
         [HttpPost]
