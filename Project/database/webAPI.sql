@@ -1,34 +1,36 @@
 CREATE TABLE ProductType
 (
-	ProductTypeID INT NOT NULL PRIMARY KEY,
+	ProductTypeID INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
     ProductTypeName NVARCHAR(50) NOT NULL
 );
+
 CREATE TABLE Supplier
 (
-	SupplierID INT NOT NULL PRIMARY KEY,
+	SupplierID INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
     SupplierName NVARCHAR(50) NOT NULL,
     SupplierAddress NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Product
 (
-	ProductID INT NOT NULL PRIMARY KEY,
+	ProductID INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
 	SupplierID INT NOT NULL,
     ProductTypeID INT NOT NULL,
     ProductName NVARCHAR(50) NOT NULL,
     Price DOUBLE  NOT NULL,
+    IMG_URL varchar(150),
     FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID),
     FOREIGN KEY (ProductTypeID) REFERENCES ProductType(ProductTypeID)
 );
-ALTER TABLE product ADD Img_URL VARCHAR(100);
+
 CREATE TABLE User
 (
-	UserID INT NOT NULL PRIMARY KEY,
+	UserID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	UserName  NVARCHAR(50) NOT NULL,
     UserMail VARCHAR(40) NOT NULL,
     UserBirthdate DATE,
     UserGender INT,
-    UserAddress VARCHAR(60) NOT NULL
+    UserAddress NVARCHAR(60) NOT NULL
 );
 
 CREATE TABLE Account
@@ -44,15 +46,16 @@ CREATE TABLE Account
 
 CREATE TABLE SearchHistory
 (
-	SearchHistoryID INT NOT NULL PRIMARY KEY,
+	SearchHistoryID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     AccountID VARCHAR(40) NOT NULL,
     SearchContent NVARCHAR(50) NOT NULL,
     SearchDate DATETIME,
     FOREIGN KEY (AccountID) REFERENCES Account(AccountID)
 );
+
 CREATE TABLE Review
 (
-	ProductID INT NOT NULL,
+	ProductID INT NOT NULL AUTO_INCREMENT,
     AccountID VARCHAR(40) NOT NULL ,
     Ranking INT NOT NULL,
     Comment NVARCHAR(80),
@@ -64,7 +67,7 @@ CREATE TABLE Review
 
 CREATE TABLE Cart 
 (
-	CartID INT NOT NULL PRIMARY KEY,
+	CartID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	AccountID VARCHAR(40) NOT NULL ,
     CartCapacity INT NOT NULL,
     CartTotal DOUBLE NOT NULL,
@@ -85,7 +88,7 @@ CREATE TABLE CartDetail
 
 CREATE TABLE  Address
 (
-	AddressID INT NOT NULL PRIMARY KEY,
+	AddressID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     AccountID VARCHAR(40) NOT NULL,
     Diachi  NVARCHAR(60) NOT NULL,
 	FOREIGN KEY (AccountID) REFERENCES Account(AccountID)
@@ -93,7 +96,7 @@ CREATE TABLE  Address
 
 CREATE TABLE  Order_
 (
-	OrderID INT NOT NULL PRIMARY KEY,
+	OrderID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     AddressID INT NOT NULL,
     AccountID VARCHAR(40) NOT NULL,
     CreatedDate DATETIME,
@@ -105,7 +108,7 @@ CREATE TABLE  Order_
 
 CREATE TABLE OrderDetail 
 (
-	OrderID INT NOT NULL,
+	OrderID INT NOT NULL AUTO_INCREMENT,
     ProductID INT NOT NULL,
 	Capacity INT NOT NULL,
     Money DOUBLE NOT NULL,
@@ -113,6 +116,7 @@ CREATE TABLE OrderDetail
     FOREIGN KEY (OrderID) REFERENCES Order_(OrderID),
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
 );
+
 INSERT INTO supplier VALUES(1,'Adidas','USA');
 INSERT INTO supplier VALUES(2,'Nike','USA');
 
@@ -124,4 +128,3 @@ INSERT INTO product VALUES(2,2,1,"Air Jordan XXXVI",5535000,"https://drive.googl
 INSERT INTO user VALUES(1,'Nhâm hồng Phúc','nhamphuc414@gm.com','2001-1-14',1,"Bình Dương");
 INSERT INTO account VALUES('hongphuc414','12345',1,0,'2021-11-14',0);
 
-select * from user

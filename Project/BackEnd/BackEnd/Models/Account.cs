@@ -10,6 +10,7 @@ namespace BackEnd.Models
     public class Account
     {
         [Key]
+
         [StringLength(40, ErrorMessage = "Không vượt quá 40 kí tự!")]
         public string AccountID { get; set; }
 

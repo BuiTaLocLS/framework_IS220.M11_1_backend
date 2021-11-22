@@ -84,6 +84,7 @@ namespace BackEnd.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
+        [Route("Post")]
         public async Task<ActionResult<ProductType>> PostProductType(ProductType productType)
         {
             if (productType != null)
@@ -100,7 +101,8 @@ namespace BackEnd.Controllers
         }
 
         // DELETE: api/ProductTypes/5
-        [HttpDelete("{id}")]
+        [HttpDelete]
+        [Route("Delete/{id?}")]
         public async Task<ActionResult<ProductType>> DeleteProductType(int id)
         {
             var productType = _context.ProductTypes.Find(id);

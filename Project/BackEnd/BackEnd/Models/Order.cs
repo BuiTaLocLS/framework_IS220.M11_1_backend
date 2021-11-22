@@ -14,6 +14,7 @@ namespace BackEnd.Models
     public class Order
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OrderID { get; set; }
 
         public int AddressID { get; set; }

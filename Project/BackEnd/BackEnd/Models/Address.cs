@@ -10,6 +10,7 @@ namespace BackEnd.Models
     public class Address
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AddressID { get; set; }
         public string AccountID { get; set; } 
         

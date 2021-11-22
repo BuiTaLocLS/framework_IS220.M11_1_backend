@@ -10,6 +10,7 @@ namespace BackEnd.Models
     public class Cart
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CartID { get; set; }
 
         public string AccountID { get; set; }
