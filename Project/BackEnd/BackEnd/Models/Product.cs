@@ -10,6 +10,7 @@ namespace BackEnd.Models
     public class Product
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductID { get; set; }
 
         public int SupplierID { get; set; }

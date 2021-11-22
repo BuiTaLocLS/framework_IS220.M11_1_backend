@@ -11,6 +11,7 @@ namespace BackEnd.Models
     public class SearchHistory
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SearchHistoryID { get; set; }
 
         public string AccountID { get; set; }
