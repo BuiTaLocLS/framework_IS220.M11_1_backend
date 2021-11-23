@@ -1,35 +1,36 @@
 CREATE TABLE ProductType
 (
-	ProductTypeID INT NOT NULL PRIMARY KEY,
-    ProductTypeName VARCHAR(50) NOT NULL
+	ProductTypeID INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
+    ProductTypeName NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Supplier
 (
-	SupplierID INT NOT NULL PRIMARY KEY,
-    SupplierName VARCHAR(50) NOT NULL,
-    SupplierAddress VARCHAR(50) NOT NULL
+	SupplierID INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
+    SupplierName NVARCHAR(50) NOT NULL,
+    SupplierAddress NVARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Product
 (
-	ProductID INT NOT NULL PRIMARY KEY,
+	ProductID INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
 	SupplierID INT NOT NULL,
     ProductTypeID INT NOT NULL,
-    ProductName VARCHAR(50) NOT NULL,
+    ProductName NVARCHAR(50) NOT NULL,
     Price DOUBLE  NOT NULL,
+    IMG_URL varchar(150),
     FOREIGN KEY (SupplierID) REFERENCES Supplier(SupplierID),
     FOREIGN KEY (ProductTypeID) REFERENCES ProductType(ProductTypeID)
 );
 
 CREATE TABLE User
 (
-	UserID INT NOT NULL PRIMARY KEY,
-	UserName  VARCHAR(50) NOT NULL,
+	UserID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+	UserName  NVARCHAR(50) NOT NULL,
     UserMail VARCHAR(40) NOT NULL,
     UserBirthdate DATE,
     UserGender INT,
-    UserAddress VARCHAR(60) NOT NULL
+    UserAddress NVARCHAR(60) NOT NULL
 );
 
 CREATE TABLE Account
@@ -45,19 +46,19 @@ CREATE TABLE Account
 
 CREATE TABLE SearchHistory
 (
-	SearchHistoryID INT NOT NULL PRIMARY KEY,
+	SearchHistoryID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     AccountID VARCHAR(40) NOT NULL,
-    SearchContent VARCHAR(50) NOT NULL,
+    SearchContent NVARCHAR(50) NOT NULL,
     SearchDate DATETIME,
     FOREIGN KEY (AccountID) REFERENCES Account(AccountID)
 );
 
 CREATE TABLE Review
 (
-	ProductID INT NOT NULL,
+	ProductID INT NOT NULL AUTO_INCREMENT,
     AccountID VARCHAR(40) NOT NULL ,
     Ranking INT NOT NULL,
-    Comment VARCHAR(80),
+    Comment NVARCHAR(80),
     CreatedDate DATETIME,
     PRIMARY KEY (ProductID,AccountID),
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
@@ -66,7 +67,7 @@ CREATE TABLE Review
 
 CREATE TABLE Cart 
 (
-	CartID INT NOT NULL PRIMARY KEY,
+	CartID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 	AccountID VARCHAR(40) NOT NULL ,
     CartCapacity INT NOT NULL,
     CartTotal DOUBLE NOT NULL,
@@ -87,15 +88,15 @@ CREATE TABLE CartDetail
 
 CREATE TABLE  Address
 (
-	AddressID INT NOT NULL PRIMARY KEY,
+	AddressID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     AccountID VARCHAR(40) NOT NULL,
-    Diachi  VARCHAR(60) NOT NULL,
+    Diachi  NVARCHAR(60) NOT NULL,
 	FOREIGN KEY (AccountID) REFERENCES Account(AccountID)
 );
 
 CREATE TABLE  Order_
 (
-	OrderID INT NOT NULL PRIMARY KEY,
+	OrderID INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     AddressID INT NOT NULL,
     AccountID VARCHAR(40) NOT NULL,
     CreatedDate DATETIME,
@@ -107,7 +108,7 @@ CREATE TABLE  Order_
 
 CREATE TABLE OrderDetail 
 (
-	OrderID INT NOT NULL,
+	OrderID INT NOT NULL AUTO_INCREMENT,
     ProductID INT NOT NULL,
 	Capacity INT NOT NULL,
     Money DOUBLE NOT NULL,
@@ -116,5 +117,14 @@ CREATE TABLE OrderDetail
     FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
 );
 
+INSERT INTO supplier VALUES(1,'Adidas','USA');
+INSERT INTO supplier VALUES(2,'Nike','USA');
 
+INSERT INTO producttype VALUES(1,'Shoe');
+INSERT INTO producttype VALUES(2,'Shirt');
+
+INSERT INTO product VALUES(1,1,2,"Own the run tee",750000,"https://drive.google.com/file/d/1SyFDHvXwM7qw12I30cfucIJdUGdi_Ljp/view?usp=sharing");
+INSERT INTO product VALUES(2,2,1,"Air Jordan XXXVI",5535000,"https://drive.google.com/file/d/1EVmu5ETMZX3-PF5muxrWX7WQJkeb-PN6/view?usp=sharing");
+INSERT INTO user VALUES(1,'Nhâm hồng Phúc','nhamphuc414@gm.com','2001-1-14',1,"Bình Dương");
+INSERT INTO account VALUES('hongphuc414','12345',1,0,'2021-11-14',0);
 
