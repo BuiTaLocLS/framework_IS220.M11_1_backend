@@ -175,4 +175,21 @@ INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALU
 INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(9,8,'Túi rút thể thao FLASH',119000,'https://drive.google.com/file/d/11qnZd8Lwzp58mrci9tFYiXtMVmsmKSgz/view?usp=sharing');
 INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(9,8,'Túi rút thể thao FLASH',119000,'https://drive.google.com/file/d/1ElJR_wvSjybdmPbPVyUUuO5-hKfG11Rs/view?usp=sharing');
 
-
+/*Procedure tạo user, account, address, cart*/
+DELIMITER $$
+CREATE PROCEDURE CreateUser(IN name_ nvarchar(50), IN mail varchar(40), IN birth date, IN gender int, IN address nvarchar(60), IN pass varchar(20))
+BEGIN
+	DECLARE userid_tmp INT DEFAULT 0;
+	INSERT INTO User(UserName, UserMail, UserBirthdate, UserGender, UserAddress)  VALUES(name_, mail, birth, gender, address);
+    
+    SELECT UserID INTO userid_tmp 
+    FROM User
+    WHERE UserName = name_ AND UserMail = mail;
+    INSERT INTO account VALUES(mail, pass, userid_tmp, 0, CURDATE(), 0);
+    
+    INSERT INTO address(AccountID, DiaChi) VALUES(mail, address);
+    
+    INSERT INTO cart(AccountID, CartCapacity, CartTotal) VALUES(mail, 0, 0);
+END; $$
+DELIMITER ;
+call CreateUser('Le Ngo Quoc Tuan', 'tuanle@gmail.com', '1999-5-12', 1, 'Biên Hòa, Đồng Nai', '12345');

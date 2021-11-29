@@ -65,6 +65,12 @@ namespace BackEnd.Controllers
             if (cartdetail != null)
             {
                 _context.CartDetails.Add(cartdetail);
+                var cart = _context.Carts.Find(cartdetail.CartID);
+                if (cart != null)
+                {
+                    cart.CartCapacity += 1;
+                    cart.CartTotal += cartdetail.Money;
+                }
                 await _context.SaveChangesAsync();
                 return cartdetail;
             }
@@ -108,6 +114,12 @@ namespace BackEnd.Controllers
             if (cartdetail != null)
             {
                 _context.CartDetails.Remove(cartdetail);
+                var cart = _context.Carts.Find(cartdetail.CartID);
+                if (cart != null)
+                {
+                    cart.CartCapacity -= 1;
+                    cart.CartTotal -= cartdetail.Money;
+                }              
                 await _context.SaveChangesAsync();
                 return cartdetail;
             }
