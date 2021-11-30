@@ -97,6 +97,59 @@ namespace BackEnd.Controllers
             }
         }
 
+        //Active
+        [HttpPut]
+        [Route("Active/{id?}")]
+        public async Task<ActionResult<Account>> Active(string id)
+        {           
+            var acc = _context.Accounts.Find(id);
+            if (acc != null)
+            {              
+                acc.IsActive = true;                
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+        //Inactive
+        [HttpPut]
+        [Route("Inactive/{id?}")]
+        public async Task<ActionResult<Account>> Inactive(string id)
+        {
+            var acc = _context.Accounts.Find(id);
+            if (acc != null)
+            {
+                acc.IsActive = false;
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        //Set admin
+        [HttpPut]
+        [Route("SetAdmin/{id?}")]
+        public async Task<ActionResult<Account>> SetAdmin(string id)
+        {
+            var acc = _context.Accounts.Find(id);
+            if (acc != null)
+            {
+                acc.IsAdmin = true;
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
         [HttpDelete]
         [Route("Delete/{id?}")]
         public async Task<ActionResult<Account>> Delete(string id)
