@@ -24,7 +24,9 @@ namespace BackEnd.Models
         [DisplayFormat(DataFormatString = "0:dd/MM/yyyy", ApplyFormatInEditMode = true)]
         public DateTime CreatedDate { get; set; }
 
-        public Status Status { get; set; }
+        //1. waitforconfirm   2. shipping  3. success  4. cancel
+        [Column("Status_")]
+        public int Status { get; set; }
 
         public double Total { get; set; }
 

@@ -65,8 +65,14 @@ namespace BackEnd.Controllers
             if (cartdetail != null)
             {
                 _context.CartDetails.Add(cartdetail);
+                var cart = _context.Carts.Find(cartdetail.CartID);
+                if (cart != null)
+                {
+                    cart.CartCapacity += 1;
+                    cart.CartTotal += cartdetail.Money;
+                }
                 await _context.SaveChangesAsync();
-                return cartdetail;
+                return Ok(cartdetail);
             }
             else
             {
@@ -76,7 +82,7 @@ namespace BackEnd.Controllers
 
         //Put CardID + ProductID
         [HttpPut]
-        [Route("Put/{id1?}/{id2?}")]
+        [Route("Put/{id1?}/{id2?}/")]
         public async Task<ActionResult<CartDetail>> Put(int id1,int id2 , CartDetail new_add)
         {
             if (id1 != new_add.CartID & id2 != new_add.ProductID)
@@ -87,11 +93,16 @@ namespace BackEnd.Controllers
             var add = _context.CartDetails.Find(id1,id2);
             if (add != null)
             {
+                var cart = _context.Carts.Find(id1);
+                if (cart != null)
+                {                   
+                    cart.CartTotal = cart.CartTotal - add.Money + new_add.Money;
+                }
                 add.Capacity = new_add.Capacity;
                 add.Money = new_add.Money;
                 add.AddDate = new_add.AddDate;
                 await _context.SaveChangesAsync();
-                return add;
+                return Ok(add);
             }
             else
             {
@@ -108,6 +119,12 @@ namespace BackEnd.Controllers
             if (cartdetail != null)
             {
                 _context.CartDetails.Remove(cartdetail);
+                var cart = _context.Carts.Find(cartdetail.CartID);
+                if (cart != null)
+                {
+                    cart.CartCapacity -= 1;
+                    cart.CartTotal -= cartdetail.Money;
+                }              
                 await _context.SaveChangesAsync();
                 return cartdetail;
             }
