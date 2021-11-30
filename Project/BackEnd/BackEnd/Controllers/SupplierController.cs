@@ -26,7 +26,7 @@ namespace BackEnd.Controllers
 
         //Get       
         [HttpGet]
-        [Route("Get")]
+        [Route("GetAll")]
         public async Task<IEnumerable<Supplier>> GetSuppliers()
         {        
             var suppliers = await (from s in _context.Suppliers

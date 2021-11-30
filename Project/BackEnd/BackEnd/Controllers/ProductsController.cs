@@ -55,9 +55,54 @@ namespace BackEnd.Controllers
                 return NotFound();
             }
         }
+
+        //Loot 
+        public static string RemoveUnicode(string text)
+        {
+            string[] arr1 = new string[] { "á", "à", "ả", "ã", "ạ", "â", "ấ", "ầ", "ẩ", "ẫ", "ậ", "ă", "ắ", "ằ", "ẳ", "ẵ", "ặ",
+                                            "đ",
+                                            "é","è","ẻ","ẽ","ẹ","ê","ế","ề","ể","ễ","ệ",
+                                            "í","ì","ỉ","ĩ","ị",
+                                            "ó","ò","ỏ","õ","ọ","ô","ố","ồ","ổ","ỗ","ộ","ơ","ớ","ờ","ở","ỡ","ợ",
+                                            "ú","ù","ủ","ũ","ụ","ư","ứ","ừ","ử","ữ","ự",
+                                            "ý","ỳ","ỷ","ỹ","ỵ",};
+            string[] arr2 = new string[] { "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a",
+                                            "d",
+                                            "e","e","e","e","e","e","e","e","e","e","e",
+                                            "i","i","i","i","i",
+                                            "o","o","o","o","o","o","o","o","o","o","o","o","o","o","o","o","o",
+                                            "u","u","u","u","u","u","u","u","u","u","u",
+                                            "y","y","y","y","y",};
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                text = text.Replace(arr1[i], arr2[i]);
+                text = text.Replace(arr1[i].ToUpper(), arr2[i].ToUpper());
+            }
+            return text;
+        }
+
+        //Get by name
+        [HttpGet]
+        [Route("GetByName/{name?}")]
+        public async Task<IEnumerable<Product>> GetbyName(string name)
+        {
+
+            var products = await (from p in _context.Products
+                                 where p.ProductName.Contains(name)
+                                 select p).ToListAsync();
+            if (products != null)
+            {
+                return products;
+            }
+            else
+            {
+                return (IEnumerable<Product>)NotFound();
+            }
+        }
+        
         //Get with producttype
         [HttpGet]
-        [Route("GetbyType/{type?}")]
+        [Route("GetByType/{type?}")]
         public async Task<IEnumerable<Product>> GetByType(string type)
         {
             var list = await (from p in _context.Products
@@ -74,6 +119,44 @@ namespace BackEnd.Controllers
             }
         }
 
+        //Get with supplier
+        [HttpGet]
+        [Route("GetBySupplier/{supplier?}")]
+        public async Task<IEnumerable<Product>> GetBySupplier(string supplier)
+        {
+            var list = await (from p in _context.Products
+                              join s in _context.Suppliers on p.SupplierID equals s.SupplierID
+                              where s.SupplierName.Equals(supplier)
+                              select p).ToListAsync();
+            if (list != null)
+            {
+                return list;
+            }
+            else
+            {
+                return (IEnumerable<Product>)NotFound();
+            }
+        }
+
+        //Get with supplier and producttype
+        [HttpGet]
+        [Route("GetByFilter/{supplier?}/{type?}")]
+        public async Task<IEnumerable<Product>> GetByFilter(string supplier, string type)
+        {
+            var list = await (from p in _context.Products
+                              join s in _context.Suppliers on p.SupplierID equals s.SupplierID
+                              join t in _context.ProductTypes on p.ProductTypeID equals t.ProductTypeID
+                              where s.SupplierName.Equals(supplier) && t.ProductTypeName.Equals(type)
+                              select p).ToListAsync();
+            if (list != null)
+            {
+                return list;
+            }
+            else
+            {
+                return (IEnumerable<Product>)NotFound();
+            }
+        }
         //Post
         [HttpPost]
         [Route("Post")]
