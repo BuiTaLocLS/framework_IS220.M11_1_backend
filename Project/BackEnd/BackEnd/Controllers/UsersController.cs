@@ -98,6 +98,25 @@ namespace BackEnd.Controllers
             }
         }
 
+        //Post procedure
+        //Post
+        [HttpPost]
+        [Route("PostProcedure/{pass?}")]
+   
+        public async Task<ActionResult<User>> PostProcedure(string pass, User user)
+        {
+            if (user != null)
+            {
+                var tmp = _context.Database.ExecuteSqlInterpolated($"call CreateUser({user.UserName}, {user.UserMail}, {user.UserBirthdate}, {user.UserGender}, {user.UserAddress}, {pass})");
+                await _context.SaveChangesAsync();
+                return Ok(user);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
         [HttpDelete]
         [Route("Delet/{id?}")]
         public async Task<ActionResult<User>> Delete(int id)
@@ -114,5 +133,6 @@ namespace BackEnd.Controllers
                 return NotFound();
             }
         }
+        
     }
 }

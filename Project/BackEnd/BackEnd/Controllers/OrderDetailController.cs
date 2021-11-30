@@ -62,6 +62,12 @@ namespace BackEnd.Controllers
         {
             if (orderdetail != null)
             {
+                var order = _context.Orders.Find(orderdetail.OrderID);
+                if (order != null)
+                {
+                    order.Total += orderdetail.Money;
+                }
+               
                 _context.OrderDetails.Add(orderdetail);
                 await _context.SaveChangesAsync();
                 return orderdetail;
@@ -82,13 +88,18 @@ namespace BackEnd.Controllers
                 return BadRequest();
             }
 
-            var add = _context.OrderDetails.Find(id1,id2);
-            if (add != null)
+            var orderdetail = _context.OrderDetails.Find(id1,id2);
+            if (orderdetail != null)
             {
-                add.Capacity = new_add.Capacity;
-                add.Money = new_add.Money;
+                var order = _context.Orders.Find(id1);
+                if (order != null)
+                {
+                    order.Total = order.Total - orderdetail.Money + new_add.Money;
+                }
+                orderdetail.Capacity = new_add.Capacity;
+                orderdetail.Money = new_add.Money;
                 await _context.SaveChangesAsync();
-                return add;
+                return orderdetail;
             }
             else
             {
@@ -104,6 +115,11 @@ namespace BackEnd.Controllers
             var orderdetail = _context.OrderDetails.Find(id1,id2);
             if (orderdetail != null)
             {
+                var order = _context.Orders.Find(id1);
+                if (order != null)
+                {
+                    order.Total = order.Total - orderdetail.Money;
+                }
                 _context.OrderDetails.Remove(orderdetail);
                 await _context.SaveChangesAsync();
                 return orderdetail;
