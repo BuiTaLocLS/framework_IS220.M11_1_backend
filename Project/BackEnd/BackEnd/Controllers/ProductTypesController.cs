@@ -40,7 +40,7 @@ namespace BackEnd.Controllers
 
         // GET: api/ProductTypes/5
         [HttpGet]
-        [Route("GetbyID")]
+        [Route("GetbyID/{id?}")]
         public async Task<ActionResult<ProductType>> GetbyID(int id)
         {
             var productType = await (from p in _context.ProductTypes
