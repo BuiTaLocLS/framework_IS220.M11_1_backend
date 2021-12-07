@@ -1,0 +1,95 @@
+---Account---
+-Get tất cả: https://localhost:44382/api/Account/GetAll
+-Get bằng ID: https://localhost:44382/api/Account/GetbyID/{id?}
+-Post: https://localhost:44382/api/Account/Post
+-Put (Cập nhật tất cả thuộc tính): https://localhost:44382/api/Account/Put/{id?}
+-Put (Cập nhật active): https://localhost:44382/api/Account/Active/{id?}
+-Put (Cập nhật inactive): https://localhost:44382/api/Account/Inactive/{id?}
+-Put (Cập nhật account là admin): https://localhost:44382/api/Account/SetAdmin/{id?}
+-Delete: https://localhost:44382/api/Account/Delete/{id?}
+
+---Address---
+-Get tất cả: https://localhost:44382/api/Address/GetAll
+-Get bằng ID: https://localhost:44382/api/Address/GetbyID/{id?}
+-Post: https://localhost:44382/api/Address/Post
+-Put: https://localhost:44382/api/Address/Put/{id?}
+-Delete: https://localhost:44382/api/Address/Delete/{id?}
+
+---Cart---
+-Get tất cả: https://localhost:44382/api/Cart/GetAll
+-Get bằng ID: https://localhost:44382/api/Cart/GetbyID/{id?}
+-Post:  https://localhost:44382/api/Cart/Post
+-Put:  https://localhost:44382/api/Cart/Put/{id?}
+-Delete: https://localhost:44382/api/Cart/Delete/{id?}
+
+---CartDetail---
+-Get tất cả: https://localhost:44382/api/CartDetail/GetAll
+-Get bằng ID: https://localhost:44382/api/CartDetail/GetbyID/{cardID?}/{productID?}
+-Post:  https://localhost:44382/api/CartDetail/Post
+-Put: https://localhost:44382/api/CartDetail/Put/{cardID?}/{productID?}
+-Delete: https://localhost:44382/api/CartDetail/Delete/{cardID?}/{productID?}
+
+---Order---
+-Get tất cả: https://localhost:44382/api/Order/GetAll
+-Get bằng ID: https://localhost:44382/api/Order/GetbyID/{id?}
+-Post https://localhost:44382/api/Order/Post
+-Put: https://localhost:44382/api/Order/Put/{id?}
+-Delete: https://localhost:44382/api/Order/Delete/{id?}
+
+---OrderDetail---
+-Get tất cả: https://localhost:44382/api/OrderDetail/GetAll
+-Get bằng id:  https://localhost:44382/api/OrderDetail/GetbyID/{id1?}/{id2?}
+-Post: https://localhost:44382/api/OrderDetail/Post
+-Put: https://localhost:44382/api/OrderDetail/Put/{orderID?}/{productID?}
+-Delete: -Put: https://localhost:44382/api/OrderDetail/Delete/{orderID?}/{productID?}
+
+---Product---
+-Get tất cả: https://localhost:44382/api/Product/GetAll
+-Get bằng ID: https://localhost:44382/api/Product/GetbyID/{id?}
+-Get bằng tên product: https://localhost:44382/api/Product/GetByName/{name?}
+-Get bằng produt type: https://localhost:44382/api/Product/GetByType/{type?}
+-Get bằng nhà cung cấp: https://localhost:44382/api/Product/GetBySupplier/{supplier?}
+-Get bằng nhà cung cấp và product type: https://localhost:44382/api/Product/GetByFilter/{supplier?}/{type?}
+-Post: https://localhost:44382/api/Product/Post
+-Put: https://localhost:44382/api/Product/Put/{id?}
+-Delete: https://localhost:44382/api/Product/Delete/{id?}
+
+---Product Type---
+-Get tất cả: https://localhost:44382/api/ProductType/GetAll
+-Get bằng ID: https://localhost:44382/api/ProductType/GetbyID/{id?}
+-Put: https://localhost:44382/api/ProductType/Put/{id?}
+-Post: https://localhost:44382/api/ProductType/Post
+-Delete: https://localhost:44382/api/ProductType/Delete/{id?}
+
+---Review---
+-Get tất cả: https://localhost:44382/api/Review/GetAll
+-Get bằng ID: https://localhost:44382/api/Review/GetbyID/{productID?}/{accountID?}
+-Post: https://localhost:44382/api/Review/Post
+-Put: https://localhost:44382/api/Review/Put/{productID?}/{accountID?}
+-Delete: https://localhost:44382/api/Review/Delete/{productID?}/{accountID?}
+
+---Search History---
+-Get tất cả: https://localhost:44382/api/SearchHistory/GetAll
+-Get bằng ID: https://localhost:44382/api/SearchHistory/GetbyID/{id?}
+-Post: https://localhost:44382/api/SearchHistory/Post
+-Put: https://localhost:44382/api/SearchHistory/Put/{id?}
+-Delete: https://localhost:44382/api/SearchHistory/Delete/{id?}
+
+---Supplier---
+-Get tất cả: https://localhost:44382/api/Supplier/GetAll
+-Get bằng ID: https://localhost:44382/api/Supplier/GetbyID/{id?}
+-Post: https://localhost:44382/api/Supplier/Post
+-Put: https://localhost:44382/api/Supplier/Put/{id?}
+-Delete: https://localhost:44382/api/Supplier/Delete/{id?}
+
+
+---User---
+-Get tất cả: https://localhost:44382/api/User/GetAll
+-Get bằng ID: https://localhost:44382/api/User/GetbyID/{id?}
+-Post: https://localhost:44382/api/User/Post
+-Put: https://localhost:44382/api/User/Put/{id?}
+-Delete: https://localhost:44382/api/User/Delete/{id?}
+
+--Post đặc biệt( Tạo: user, account, cart): https://localhost:44382/api/User/PostProcedure/{pass?}
+
+
