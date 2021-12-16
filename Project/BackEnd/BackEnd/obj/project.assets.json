@@ -61,6 +61,21 @@
           "lib/netstandard2.0/K4os.Hash.xxHash.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.21": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -2879,6 +2894,21 @@
         "lib/netstandard1.6/K4os.Hash.xxHash.xml",
         "lib/netstandard2.0/K4os.Hash.xxHash.dll",
         "lib/netstandard2.0/K4os.Hash.xxHash.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.21": {
+      "sha512": "flLLEaro2lX5CwnkBpyWlsk54hkB25qAukqK0mliNBsQIJ4AW+RJbJqwbu76vnSsmsjD93o9HCPF7YFAFujUUQ==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.1.21",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.3.1.21.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
@@ -9017,6 +9047,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.21",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 3.1.21",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.21",
       "Microsoft.EntityFrameworkCore.InMemory >= 3.1.21",
@@ -9024,24 +9055,35 @@
       "Microsoft.EntityFrameworkCore.Tools >= 3.1.21",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
       "MySql.Data >= 8.0.27",
-      "MySql.EntityFrameworkCore >= 3.1.17"
+      "MySql.EntityFrameworkCore >= 3.1.17",
+      "System.IdentityModel.Tokens.Jwt >= 5.5.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\19520\\.nuget\\packages\\": {}
+    "C:\\Users\\NoLimit\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\HK5 2021-2022\\Framework\\framework_IS220.M11_1_backend\\Project\\BackEnd\\BackEnd\\BackEnd.csproj",
+      "projectUniqueName": "F:\\0. UIT UNIVERSITY\\Nam 3\\6. FrameWork\\GIT\\Project\\BackEnd\\BackEnd\\BackEnd.csproj",
       "projectName": "BackEnd",
-      "projectPath": "E:\\HK5 2021-2022\\Framework\\framework_IS220.M11_1_backend\\Project\\BackEnd\\BackEnd\\BackEnd.csproj",
-      "packagesPath": "C:\\Users\\19520\\.nuget\\packages\\",
-      "outputPath": "E:\\HK5 2021-2022\\Framework\\framework_IS220.M11_1_backend\\Project\\BackEnd\\BackEnd\\obj\\",
+      "projectPath": "F:\\0. UIT UNIVERSITY\\Nam 3\\6. FrameWork\\GIT\\Project\\BackEnd\\BackEnd\\BackEnd.csproj",
+      "packagesPath": "C:\\Users\\NoLimit\\.nuget\\packages\\",
+      "outputPath": "F:\\0. UIT UNIVERSITY\\Nam 3\\6. FrameWork\\GIT\\Project\\BackEnd\\BackEnd\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\19520\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\NoLimit\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -9066,6 +9108,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[3.1.21, )"
+          },
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
             "target": "Package",
             "version": "[3.1.21, )"
@@ -9101,6 +9147,10 @@
           "MySql.EntityFrameworkCore": {
             "target": "Package",
             "version": "[3.1.17, )"
+          },
+          "System.IdentityModel.Tokens.Jwt": {
+            "target": "Package",
+            "version": "[5.5.0, )"
           }
         },
         "imports": [

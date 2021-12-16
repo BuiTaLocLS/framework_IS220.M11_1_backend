@@ -7,9 +7,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using BackEnd.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackEnd.Controllers
 {
+    [Authorize]
     [Route("api/Address")]
     [ApiController]
     public class AddressController : ControllerBase
