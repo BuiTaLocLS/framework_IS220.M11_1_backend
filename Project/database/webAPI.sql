@@ -175,6 +175,39 @@ INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALU
 INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(9,8,'Túi rút thể thao FLASH',119000,'https://drive.google.com/file/d/11qnZd8Lwzp58mrci9tFYiXtMVmsmKSgz/view?usp=sharing');
 INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(9,8,'Túi rút thể thao FLASH',119000,'https://drive.google.com/file/d/1ElJR_wvSjybdmPbPVyUUuO5-hKfG11Rs/view?usp=sharing');
 
+
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(5,4,'Giày Pan Sonic S 2021 IC',540000,'https://drive.google.com/uc?export=view&id=1ZOfFSKXYxwLYY-3R3YobFDs9ZEAEh5Ia');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(5,4,'Giày Pan Sonic S 2021 IC',540000,'https://drive.google.com/uc?export=view&id=14NWj7UQqWZHGgi4ZpGmmGOlvJ1n_phvL');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(5,4,'Giày Pan Sonic S 2021 IC',540000,'https://drive.google.com/uc?export=view&id=1iQrBi5xvA__fIgsJLMHzWyt7r7sMBG2w');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(5,4,'Giày Pan Sonic L 2021 IC',540000,'https://drive.google.com/uc?export=view&id=1Rs1kPbNWVGKjr4NxfzwhVF9Em3d6i0XM');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(5,4,'Giày Pan Sonic L 2021 IC',540000,'https://drive.google.com/uc?export=view&id=1BrYrRbnTuteII-0QLTONEt4uP6ysFzzT');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(5,4,'Giày Pan Sonic L 2021 IC',540000,'https://drive.google.com/uc?export=view&id=1OXKt9pRk9Z0ujzMGEkgZL-5KdxFx7o01');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(6,5,'Giày thể thao Mira Sky S1',699000,'https://drive.google.com/uc?export=view&id=17WCHnpRWTuA_AAKclh4hZhDjAy5U2YrL');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(6,5,'Giày thể thao Mira Sky S2',699000,'https://drive.google.com/uc?export=view&id=1rWs2Tpqnve88Voew5s_f7hYKRQEQQJfg');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(6,5,'Giày thể thao Mira Sky S3',699000,'https://drive.google.com/uc?export=view&id=1tatbg0hYlyMY3OK22lHZf0Foy1wPkaoD');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(6,5,'Giày thể thao Mira Sky S4',699000,'https://drive.google.com/uc?export=view&id=1856Uqg6U368BZE8bGvb6o_8kf72mMss8');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(7,5,'Giày thể thao Jogarbola Boost M1',790000,'https://drive.google.com/uc?export=view&id=1k3EMHq2KqBv1dKtOALghtGGN--XHl32m');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(7,5,'Giày thể thao Jogarbola Boost M2',790000,'https://drive.google.com/uc?export=view&id=197i8V9ozl1f-1M-4ySrj1q-rFgFXwSG8');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(7,4,'Giày Jogarbola 001 TF',490000,'https://drive.google.com/uc?export=view&id=1Z51aMyFkgilZf59Vw_e1fvOGWm9EJ0Fn');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(7,4,'Giày Jogarbola 002 TF',490000,'https://drive.google.com/uc?export=view&id=18aNPsDhIsYpTA1N3Zy4HKxwtyvvVaDBt');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(7,4,'Giày Jogarbola 003 TF',490000,'https://drive.google.com/uc?export=view&id=1lt6x_oau9sPltALMRqUZdG003yQxVaxc');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(7,4,'Giày Jogarbola 004 TF',490000,'https://drive.google.com/uc?export=view&id=1CnPXIabERaj2B_loYOQpX4VNYM4rQygO');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(7,4,'Giày Jogarbola 005 TF',490000,'https://drive.google.com/uc?export=view&id=1t8-Hl88BNc8_jeNn_WUQwy9B_EaETsZD');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(7,4,'Giày Jogarbola 006 TF',490000,'https://drive.google.com/uc?export=view&id=19zY78L4147wGSBm9gR7XBxCgGtZ8EL8-');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(8,6,'Quần áo bóng đá CP Fasten',170000,'https://drive.google.com/uc?export=view&id=1i0sK0sgOAQLeTbTvna-4j9agznGEzifX');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(8,6,'Quần áo bóng đá CP Fasten',490000,'https://drive.google.com/uc?export=view&id=17E6WMTRQNKg3A1x6Opin0AXcqZpKnYaK');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(8,6,'Quần áo bóng đá CP Fasten',490000,'https://drive.google.com/uc?export=view&id=1KqAgXWT-hrtBR7GT2iedLOSw2fTHFbQz');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(8,6,'Quần áo bóng đá CP Fasten',490000,'https://drive.google.com/uc?export=view&id=178NU-qW_ulyjHqFgj70lwuXWSku9NdE4');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(8,6,'Quần áo bóng đá CP Fasten',490000,'https://drive.google.com/uc?export=view&id=13dUMP5Xe4chQa_TzLONPx-9Z468hm0rs');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(8,6,'Quần áo bóng đá CP Fasten',490000,'https://drive.google.com/uc?export=view&id=1brMP2EC4yGbHj5sQvu12aSSuGU9IJDsX');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(9,8,'Túi đựng giày 2 ngăn X',99000,'https://drive.google.com/uc?export=view&id=1nUzAukjJTQh_hQmpYoeFJLMuPrUTf1Fz');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(9,8,'Túi đựng giày 2 ngăn X',99000,'https://drive.google.com/uc?export=view&id=1DbQRG6ySY851s_p_xx-ZBWjwYQJZgnZr');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(9,8,'Túi rút thể thao FLASH',119000,'https://drive.google.com/uc?export=view&id=13MCwol7Sa1V3VVWFVJBJ9x5SmKatJ1Mx');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(9,8,'Túi rút thể thao FLASH',119000,'https://drive.google.com/uc?export=view&id=11qnZd8Lwzp58mrci9tFYiXtMVmsmKSgz');
+INSERT INTO product(SupplierID, ProductTypeID, ProductName, Price, IMG_URL) VALUES(9,8,'Túi rút thể thao FLASH',119000,'https://drive.google.com/uc?export=view&id=1ElJR_wvSjybdmPbPVyUUuO5-hKfG11Rs');
+
+
+
 /*Procedure tạo user, account, address, cart*/
 DELIMITER $$
 CREATE PROCEDURE CreateUser(IN name_ nvarchar(50), IN mail varchar(40), IN birth date, IN gender int, IN address nvarchar(60), IN pass varchar(20))
