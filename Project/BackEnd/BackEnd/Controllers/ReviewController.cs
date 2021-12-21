@@ -55,6 +55,25 @@ namespace BackEnd.Controllers
             }
         }
 
+
+        //Get by ProductID
+        [HttpGet]
+        [Route("GetbyProID/{id?}")]
+        public async Task<IEnumerable<Review>> GetbyProID(int id)
+        {
+            var reviews = await (from A in _context.Reviews                              
+                                 where A.ProductID.Equals(id)
+                                 select A).ToListAsync();
+            if (reviews != null)
+            {
+                return reviews;
+            }
+            else
+            {
+                return (IEnumerable<Review>)NotFound();
+            }
+        }
+
         //Post
         [HttpPost]
         [Route("Post")]
