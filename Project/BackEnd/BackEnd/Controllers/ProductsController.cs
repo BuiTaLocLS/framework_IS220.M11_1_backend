@@ -56,6 +56,27 @@ namespace BackEnd.Controllers
             }
         }
 
+        //Get product with the most purchases
+        //[HttpGet]
+        //[Route("GetByPurchase")]
+        //public async Task<IEnumerable<Product>> GetByPurchase()
+        //{
+
+        //    var products = await (from p in _context.Products
+        //                         join d in _context.OrderDetails on p.ProductID equals d.ProductID
+        //                         group d by d.ProductID into newgr
+        //                         orderby newgr.Count() descending
+        //                         select newgr).ToListAsync();
+        //    if (products != null)
+        //    {
+        //        return (IEnumerable<Product>)products;
+        //    }
+        //    else
+        //    {
+        //        return (IEnumerable<Product>)NotFound();
+        //    }
+        //}
+
         //Loot 
         public static string RemoveUnicode(string text)
         {
