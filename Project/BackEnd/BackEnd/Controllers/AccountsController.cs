@@ -169,18 +169,18 @@ namespace BackEnd.Controllers
 
         [HttpPost]
         [Route("Login/{id?}/{pass?}")]
-        public async Task<ActionResult<Boolean>> Login(string id, string pass)
+        public async Task<ActionResult> Login(string id, string pass)
         {
             var Acc = await (from A in _context.Accounts
                              where A.AccountID == id && A.AccountPassword == pass
                              select A).FirstOrDefaultAsync();
             if (Acc != null)
             {
-                return true;
+                return Ok();
             }
             else
             {
-                return false;
+                return NotFound();
             }    
         }
     }
