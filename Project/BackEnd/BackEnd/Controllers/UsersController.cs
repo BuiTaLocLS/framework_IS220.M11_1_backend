@@ -118,7 +118,7 @@ namespace BackEnd.Controllers
         }
 
         [HttpDelete]
-        [Route("Delet/{id?}")]
+        [Route("Delete/{id?}")]
         public async Task<ActionResult<User>> Delete(int id)
         {
             var user = _context.Users.Find(id);
