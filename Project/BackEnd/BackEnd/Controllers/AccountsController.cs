@@ -166,5 +166,22 @@ namespace BackEnd.Controllers
                 return NotFound();
             }
         }
+
+        [HttpPost]
+        [Route("Login/{id?}/{pass?}")]
+        public async Task<ActionResult<Boolean>> Login(string id, string pass)
+        {
+            var Acc = await (from A in _context.Accounts
+                             where A.AccountID == id && A.AccountPassword == pass
+                             select A).FirstOrDefaultAsync();
+            if (Acc != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }    
+        }
     }
 }
