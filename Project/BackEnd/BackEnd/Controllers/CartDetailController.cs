@@ -36,7 +36,25 @@ namespace BackEnd.Controllers
             }
         }
 
-     //Get by cartID+productID
+        [HttpGet]
+        [Route("GetwithAcc/{acc?}")]
+        public async Task<IEnumerable<CartDetail>> GetwithAcc(string acc)
+        {
+            var cartdetails = await (from A in _context.CartDetails
+                                     join C in _context.Carts on A.CartID equals C.CartID
+                                     where C.AccountID.Equals(acc)
+                                     select A).ToListAsync();
+            if (cartdetails != null)
+            {
+                return cartdetails;
+            }
+            else
+            {
+                return (IEnumerable<CartDetail>)NotFound();
+            }
+        }
+
+        //Get by cartID+productID
         [HttpGet]
         [Route("GetbyID/{id1?}/{id2?}")]
         public async Task<ActionResult<CartDetail>> GetbyID(int id1, int id2)

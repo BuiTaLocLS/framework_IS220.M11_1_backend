@@ -159,15 +159,16 @@ namespace BackEnd.Controllers
             }
         }
 
+
         //Get with supplier and producttype
         [HttpGet]
         [Route("GetByFilter/{supplier?}/{type?}")]
-        public async Task<IEnumerable<Product>> GetByFilter(string supplier, string type)
+        public async Task<IEnumerable<Product>> GetByFilter(int supplier, int type)
         {
             var list = await (from p in _context.Products
                               join s in _context.Suppliers on p.SupplierID equals s.SupplierID
                               join t in _context.ProductTypes on p.ProductTypeID equals t.ProductTypeID
-                              where s.SupplierName.Equals(supplier) && t.ProductTypeName.Equals(type)
+                              where s.SupplierID == (supplier) && t.ProductTypeID == (type)
                               select p).ToListAsync();
             if (list != null)
             {
