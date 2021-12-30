@@ -245,3 +245,11 @@ insert into orderdetail VALUES(3,33,1,5400000);
 insert into order_(AddressID , AccountID, CreatedDate , status_, total) values(4,'trankhoa@mail.com','2021-12-21',1,980000);
 insert into orderdetail VALUES(4,42,1,4900000);
 insert into orderdetail VALUES(4,43,1,4900000);
+
+insert into cartdetail values(1,45,1,490000,'2021-12-25');
+insert into cartdetail values(1,46,1,490000,'2021-12-25');
+update cart set cartcapacity =2, carttotal = 980000 where cartid=1;
+
+insert into cartdetail values(2,38,1,699000,'2021-12-25');
+insert into cartdetail values(2,39,1,699000,'2021-12-25');
+update cart set cartcapacity =2, carttotal = 1398000 where cartid=2;
