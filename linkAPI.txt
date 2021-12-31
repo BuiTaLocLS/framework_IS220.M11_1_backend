@@ -92,4 +92,11 @@
 
 --Post đặc biệt( Tạo: user, account, cart): https://localhost:44382/api/User/PostProcedure/{pass?}
 
+--Login--
+http://localhost:54610/api/home/login
+
+--Admin hay user?--
+http://localhost:54610/api/home/admin
+http://localhost:54610/api/home/user
+
 

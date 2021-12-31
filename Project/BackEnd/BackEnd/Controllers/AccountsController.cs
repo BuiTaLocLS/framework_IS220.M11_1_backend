@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BackEnd.Controllers
 {
-    [Authorize]
+   
     [Route("api/Account")]
     [ApiController]
     public class AccountsController : ControllerBase
@@ -21,7 +21,7 @@ namespace BackEnd.Controllers
         {
             _context = context;
         }
-
+    
         //Get
         [HttpGet]
         [Route("GetAll")]
@@ -151,7 +151,7 @@ namespace BackEnd.Controllers
                 return NotFound();
             }
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         [Route("Delete/{id?}")]
         public async Task<ActionResult<Account>> Delete(string id)
@@ -170,15 +170,15 @@ namespace BackEnd.Controllers
         }
 
         [HttpPost]
-        [Route("Login/{id?}/{pass?}")]
-        public async Task<ActionResult> Login(string id, string pass)
+        [Route("Login")]
+        public async Task<ActionResult<Account>> Login(Account tmp)
         {
             var Acc = await (from A in _context.Accounts
-                             where A.AccountID == id && A.AccountPassword == pass
+                             where A.AccountID == tmp.AccountID && A.AccountPassword == tmp.AccountPassword
                              select A).FirstOrDefaultAsync();
             if (Acc != null)
             {
-                return Ok();
+                return Ok(Acc);
             }
             else
             {
@@ -186,4 +186,6 @@ namespace BackEnd.Controllers
             }    
         }
     }
+
+ 
 }
