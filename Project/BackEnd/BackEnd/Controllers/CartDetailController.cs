@@ -76,16 +76,34 @@ namespace BackEnd.Controllers
         //Get by userid
         [HttpGet]
         [Route("GetbyAccountID/{id?}")]
-        public async Task<ActionResult<CartDetail>> GetbyAccountID(string id)
+        public async Task<ActionResult<object>> GetbyAccountID(string id)
         {
-
+            List<object> list = new List<object>();
             var cartdetails = await (from d in _context.CartDetails
                                     join c in _context.Carts on d.CartID equals c.CartID
                                     where c.AccountID.Equals(id) 
                                     select d).ToListAsync();
-            if (cartdetails != null)
+
+            foreach (var item in cartdetails)
             {
-                return Ok(cartdetails);
+                var tmp = (from p in _context.Products
+                           where p.ProductID.Equals(item.ProductID)
+                           select p).FirstOrDefault();
+                list.Add(new
+                {
+                    ProductID = item.ProductID,
+                    CartID = item.CartID,
+                    Capacity = item.Capacity,
+                    Money = item.Money,
+                    AddDate = item.AddDate,
+                    ProductName = tmp.ProductName,
+                    Price = tmp.Price,
+                    img_URL = tmp.img_URL
+                });
+            }    
+            if (list != null)
+            {
+                return Ok(list);
             }
             else
             {
@@ -157,29 +175,50 @@ namespace BackEnd.Controllers
             }    
         }
 
-
+        
 
         //Post
         [HttpPost]
         [Route("Post")]
         public async Task<ActionResult<CartDetail>> Post(CartDetail cartdetail)
         {
-            if (cartdetail != null)
+            var tmp = (from d in _context.CartDetails                     
+                       where d.CartID.Equals(cartdetail.CartID) && d.ProductID.Equals(cartdetail.ProductID)
+                       select d);
+            if (tmp == null)
             {
-                _context.CartDetails.Add(cartdetail);
-                var cart = _context.Carts.Find(cartdetail.CartID);
-                if (cart != null)
+                if (cartdetail != null)
                 {
-                    cart.CartCapacity += 1;
-                    cart.CartTotal += cartdetail.Money;
+                    _context.CartDetails.Add(cartdetail);
+                    var cart = _context.Carts.Find(cartdetail.CartID);
+                    if (cart != null)
+                    {
+                        cart.CartCapacity += 1;
+                        cart.CartTotal += cartdetail.Money;
+                    }
+                    await _context.SaveChangesAsync();
+                    return Ok(cartdetail);
                 }
-                await _context.SaveChangesAsync();
-                return Ok(cartdetail);
+                else
+                {
+                    return NoContent();
+                }
             }
             else
             {
-                return NoContent();
-            }
+                var detail = _context.CartDetails.Find(cartdetail.CartID, cartdetail.ProductID);
+                detail.Capacity += cartdetail.Capacity;
+                detail.Money += cartdetail.Money;             
+                var cart = _context.Carts.Find(cartdetail.CartID);
+                if (cart != null)
+                {
+                    cart.CartTotal += cartdetail.Money;
+                }
+                cartdetail = detail;
+                await _context.SaveChangesAsync();
+                return Ok(cartdetail);
+            }    
+            
         }
 
         //Put CardID + ProductID
