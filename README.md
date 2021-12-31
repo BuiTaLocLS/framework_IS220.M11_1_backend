@@ -105,7 +105,7 @@ React JS
 
 \- Tạo CSDL: có thể bằng MySQL workbench. Chạy các câu lệnh trong webapi.sql
 
-\- Clone code Backend à Build
+\- Clone code Backend và Build
 
 \- Vào app setting và chỉnh thông số phù hợp với cơ sở dữ liệu.
 
@@ -115,5 +115,5 @@ React JS
 
 \- Clone code về.
 
-\- Vào terminal gõ “npm install npmi” à gõ “npm start”
+\- Vào terminal gõ “npm install npmi” và gõ “npm start”
 
