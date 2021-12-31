@@ -11,6 +11,7 @@ namespace BackEnd.Models
     {
         waitforconfirm, shipping, success, cancel
     }
+    [Table("order_")]
     public class Order
     {
         [Key]
