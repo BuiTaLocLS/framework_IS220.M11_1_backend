@@ -73,7 +73,91 @@ namespace BackEnd.Controllers
             }
         }
 
-     
+        //Get by userid
+        [HttpGet]
+        [Route("GetbyAccountID/{id?}")]
+        public async Task<ActionResult<CartDetail>> GetbyAccountID(string id)
+        {
+
+            var cartdetails = await (from d in _context.CartDetails
+                                    join c in _context.Carts on d.CartID equals c.CartID
+                                    where c.AccountID.Equals(id) 
+                                    select d).ToListAsync();
+            if (cartdetails != null)
+            {
+                return Ok(cartdetails);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+        //Convert cart details to order detail
+        [HttpPost]
+        [Route("Convert/{id?}")]
+        public async Task<ActionResult> Convert(string id)
+        {
+            var cartdetails = await (from d in _context.CartDetails
+                                     join c in _context.Carts on d.CartID equals c.CartID
+                                     where c.AccountID.Equals(id)
+                                     select d).ToListAsync();
+
+            var cart = await (from c in _context.Carts
+                              where c.AccountID.Equals(id)
+                              select c).FirstOrDefaultAsync();
+
+            var add = await (from d in _context.Addresses                            
+                             where d.AccountID.Equals(id)
+                             select d).FirstOrDefaultAsync();
+
+            double tong = 0;
+            foreach (var i in cartdetails)
+            {
+                tong += i.Money;
+            }
+            Order tmp = new Order();
+            tmp.AddressID = add.AddressID;
+            tmp.AccountID = id;
+            tmp.CreatedDate = DateTime.Today;
+            tmp.Status = 1;
+            tmp.Total = tong;
+            if (tmp != null)
+            {
+                _context.Orders.Add(tmp);
+                await _context.SaveChangesAsync();
+            }
+            var new_order = await (from o in _context.Orders
+                                   where o.AccountID.Equals(id) && o.CreatedDate.Equals(tmp.CreatedDate) && o.Status.Equals(1) && o.Total.Equals(tong)
+                                   select o).FirstOrDefaultAsync();
+            foreach (var i in cartdetails)
+            {
+                OrderDetail tmp1 = new OrderDetail();
+                tmp1.OrderID = new_order.OrderID;
+                tmp1.ProductID = i.ProductID;
+                tmp1.Capacity = i.Capacity;
+                tmp1.Money = i.Money;
+                _context.OrderDetails.Add(tmp1);
+            }
+
+            cart.CartTotal = 0;
+            cart.CartCapacity = 0;
+            foreach (var i in cartdetails)
+            {
+                _context.CartDetails.Remove(i);
+            }
+            await _context.SaveChangesAsync(); 
+
+            if (new_order!=null)
+            {            
+                return Ok();
+            }
+            else
+            {
+                return NoContent();
+            }    
+        }
+
+
 
         //Post
         [HttpPost]
