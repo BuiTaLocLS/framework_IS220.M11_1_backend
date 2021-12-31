@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "7dk06AxrBEDnj8ETjtIQxe7DqARXFU5BH1LJ5L6vXQNmhzCH+cTMuYfMtbgLKBJUHOFZTrdKYsE4X2jVPS+EEA==",
+  "dgSpecHash": "Y+YkIovAWUs71qvyU1vGE7kQLhnbMOVH81xa0ufPn6zpayxNj3k+ZgrhPaqUD6aSuy4nbaN3J2fXTdkFn2xH2A==",
   "success": true,
   "projectFilePath": "E:\\HK5 2021-2022\\Framework\\framework_IS220.M11_1_backend\\Project\\BackEnd\\BackEnd\\BackEnd.csproj",
   "expectedPackageFiles": [
@@ -9,6 +9,7 @@
     "C:\\Users\\19520\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
     "C:\\Users\\19520\\.nuget\\packages\\k4os.compression.lz4.streams\\1.2.6\\k4os.compression.lz4.streams.1.2.6.nupkg.sha512",
     "C:\\Users\\19520\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
+    "C:\\Users\\19520\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.21\\microsoft.aspnetcore.authentication.jwtbearer.3.1.21.nupkg.sha512",
     "C:\\Users\\19520\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\19520\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.21\\microsoft.aspnetcore.jsonpatch.3.1.21.nupkg.sha512",
     "C:\\Users\\19520\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.1.21\\microsoft.aspnetcore.mvc.newtonsoftjson.3.1.21.nupkg.sha512",
