@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackEnd.Controllers
 {
@@ -180,6 +181,7 @@ namespace BackEnd.Controllers
             }
         }
         //Post
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("Post")]
         public async Task<ActionResult<Product>> Post(Product product)
@@ -197,6 +199,7 @@ namespace BackEnd.Controllers
         }
 
         //Put
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         [Route("Put/{id?}")]
         public async Task<ActionResult<Product>> Put(int id, Product new_product)
@@ -223,6 +226,7 @@ namespace BackEnd.Controllers
         }
 
         //Delete
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         [Route("Delete/{id?}")]
         public async Task<ActionResult<Product>> Delete(int id)
