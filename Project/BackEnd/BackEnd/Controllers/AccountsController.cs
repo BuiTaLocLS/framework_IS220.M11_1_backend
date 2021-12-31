@@ -135,7 +135,6 @@ namespace BackEnd.Controllers
         }
 
         //Set admin
-        [Authorize(Roles = "Admin")]
         [HttpPut]
         [Route("SetAdmin/{id?}")]
         public async Task<ActionResult<Account>> SetAdmin(string id)

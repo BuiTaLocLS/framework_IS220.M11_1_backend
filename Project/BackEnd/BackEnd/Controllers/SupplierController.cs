@@ -52,7 +52,6 @@ namespace BackEnd.Controllers
                 return NoContent();
         }
         //Post
-        [Authorize(Roles = "Admin")]
         [Route("Post")]
         [HttpPost]
         public async Task<ActionResult<Supplier>> Post(Supplier supplier)
@@ -67,7 +66,6 @@ namespace BackEnd.Controllers
                 return NoContent();          
         }
         //Put
-        [Authorize(Roles = "Admin")]
         [HttpPut]
         [Route("Put/{id?}")]
         public async Task<ActionResult<Supplier>> Put(int id,Supplier new_supplier)
@@ -91,7 +89,6 @@ namespace BackEnd.Controllers
             }           
         }
         //Delete
-        [Authorize(Roles = "Admin")]
         [HttpDelete]
         [Route("Delete/{id?}")]
         public async Task<ActionResult<Supplier>> Delete(int id)
