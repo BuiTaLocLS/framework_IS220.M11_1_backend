@@ -34,20 +34,9 @@ namespace BackEnd.Controllers
 
             var token = TokenService.CreateToken(user);
             user.AccountPassword = "";
-            var role = "";
-            if (user.IsAdmin)
-            {
-                role = "Admin";
-            }
-            else
-            {
-                role = "User";
-            }
             return new
             {
-                user = user,
-                role = role,
-                token = token
+              token = token
             };
         }
 
@@ -75,7 +64,7 @@ namespace BackEnd.Controllers
             return new
             {
                 user = user,
-                role = "User"
+                role = "user"
             };
         }
         [HttpGet]

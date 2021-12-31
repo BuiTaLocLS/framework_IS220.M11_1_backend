@@ -32,7 +32,7 @@ namespace BackEnd.Data
             modelBuilder.Entity<Account>().ToTable("Account").HasKey(c => c.AccountID);
             modelBuilder.Entity<Address>().ToTable("Address").HasKey(c => c.AddressID);
             modelBuilder.Entity<Cart>().ToTable("Cart").HasKey(c => c.CartID);          
-            modelBuilder.Entity<Order>().ToTable("Order_").HasKey(c => c.OrderID);
+            modelBuilder.Entity<Order>().ToTable("Order").HasKey(c => c.OrderID);
             modelBuilder.Entity<Product>().ToTable("Product").HasKey(c => c.ProductID);
             modelBuilder.Entity<ProductType>().ToTable("ProductType").HasKey(c => c.ProductTypeID);
             modelBuilder.Entity<SearchHistory>().ToTable("SearchHistory").HasKey(c => c.SearchHistoryID);
