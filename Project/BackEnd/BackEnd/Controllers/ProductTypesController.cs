@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BackEnd.Data;
 using BackEnd.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackEnd.Controllers
 {
@@ -58,6 +59,7 @@ namespace BackEnd.Controllers
         // PUT: api/ProductTypes/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Authorize(Roles = "Admin")]
         [HttpPut]
         [Route("Put/{id?}")]
         public async Task<ActionResult<ProductType>> Put(int id, ProductType productType)
@@ -83,6 +85,7 @@ namespace BackEnd.Controllers
         // POST: api/ProductTypes
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [Route("Post")]
         public async Task<ActionResult<ProductType>> PostProductType(ProductType productType)
@@ -101,6 +104,7 @@ namespace BackEnd.Controllers
         }
 
         // DELETE: api/ProductTypes/5
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         [Route("Delete/{id?}")]
         public async Task<ActionResult<ProductType>> DeleteProductType(int id)
