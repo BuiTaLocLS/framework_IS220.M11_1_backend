@@ -55,6 +55,50 @@ namespace BackEnd.Controllers
             }
         }
 
+        //Update success
+        [HttpPut]
+        [Route("success/{id?}")]
+        public async Task<ActionResult<Order>> Success(int id)
+        {
+
+            var order = await (from c in _context.Orders 
+                               where c.OrderID.Equals(id)
+                               select c).FirstOrDefaultAsync();
+           
+            if (order != null)
+            {
+                order.Status = 3;
+                await _context.SaveChangesAsync();
+                return Ok(order);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
+        //Update cancel
+        [HttpPut]
+        [Route("cancel/{id?}")]
+        public async Task<ActionResult<Order>> Cancel(int id)
+        {
+
+            var order = await (from c in _context.Orders
+                               where c.OrderID.Equals(id)
+                               select c).FirstOrDefaultAsync();
+
+            if (order != null)
+            {
+                order.Status = 4;
+                await _context.SaveChangesAsync();
+                return Ok(order);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
         //Post
         [HttpPost]
         [Route("Post")]

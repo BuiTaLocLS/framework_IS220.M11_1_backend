@@ -119,7 +119,7 @@ namespace BackEnd.Controllers
             tmp.AddressID = add.AddressID;
             tmp.AccountID = id;
             tmp.CreatedDate = DateTime.Today;
-            tmp.Status = 1;
+            tmp.Status = 2;
             tmp.Total = tong;
             if (tmp != null)
             {
