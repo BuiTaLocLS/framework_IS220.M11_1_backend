@@ -184,7 +184,7 @@ namespace BackEnd.Controllers
         {
             var tmp = (from d in _context.CartDetails                     
                        where d.CartID.Equals(cartdetail.CartID) && d.ProductID.Equals(cartdetail.ProductID)
-                       select d);
+                       select d).FirstOrDefault();
             if (tmp == null)
             {
                 if (cartdetail != null)
@@ -206,17 +206,16 @@ namespace BackEnd.Controllers
             }
             else
             {
-                var detail = _context.CartDetails.Find(cartdetail.CartID, cartdetail.ProductID);
-                detail.Capacity += cartdetail.Capacity;
-                detail.Money += cartdetail.Money;             
+                tmp.Capacity += cartdetail.Capacity;
+                tmp.Money += cartdetail.Money;             
                 var cart = _context.Carts.Find(cartdetail.CartID);
                 if (cart != null)
                 {
                     cart.CartTotal += cartdetail.Money;
                 }
-                cartdetail = detail;
+                
                 await _context.SaveChangesAsync();
-                return Ok(cartdetail);
+                return Ok(tmp);
             }    
             
         }
