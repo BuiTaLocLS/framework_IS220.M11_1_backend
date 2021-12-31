@@ -11,6 +11,7 @@ using Microsoft.Data.SqlClient;
 using System.Data;
 using MySql.Data.MySqlClient;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackEnd.Controllers
 {
