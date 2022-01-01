@@ -114,5 +114,15 @@ namespace BackEnd.Controllers
                 return NotFound();
             }
         }
+
+        [HttpGet]
+        [Route("GetCartID/{id?}")]
+        public Int32 GetCartID(string id)
+        {
+            var cart = Convert.ToInt32((from c in _context.Carts
+                        where c.AccountID.Equals(id)
+                        select c.CartID).FirstOrDefault());
+            return Convert.ToInt32(cart);
+        }
     }
 }
