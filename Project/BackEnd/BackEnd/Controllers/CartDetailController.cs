@@ -145,7 +145,7 @@ namespace BackEnd.Controllers
                 await _context.SaveChangesAsync();
             }
             var new_order = await (from o in _context.Orders
-                                   where o.AccountID.Equals(id) && o.CreatedDate.Equals(tmp.CreatedDate) && o.Status.Equals(1) && o.Total.Equals(tong)
+                                   where o.AccountID.Equals(id) && o.CreatedDate.Equals(tmp.CreatedDate) && o.Status.Equals(2) && o.Total.Equals(tong)
                                    select o).FirstOrDefaultAsync();
             foreach (var i in cartdetails)
             {
